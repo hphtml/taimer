@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="j">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="timer"></p>
+    <button id="btn">start</button>
+    <script>
+        var addzero=function(a){
+            if(a<10){
+                a="0"+a;
+            }
+            return a;
+        }
+        //タイマー関数
+        var count=function(){
+            var b=new Date;
+            var sen=b.getTime()-a.getTime();
+            sen=Math.floor(sen/1000);
+            var minuts=Math.floor(sen/60);
+            var hours=Math.floor(minuts/60);
+            sen=sen-minuts*60;
+            minuts=minuts-hours*60;
+            
+            sen=addzero(sen);
+            minuts=addzero(minuts);
+            hours=addzero(hours);
+        
+            document.getElementById("timer").innerHTML=hours+":"+minuts+":"+sen;
+        }
+
+        //クリック
+        var stop;
+        var a=new Date;
+        document.getElementById("btn").addEventListener('click',function(){
+            if(this.innerHTML==="start"){
+            　 this.innerHTML="stop";
+　　　　　　　　stop=setInterval(count,1);
+            }else{
+               clearInterval(stop);
+            }
+
+        })
+    </script>
+</body>
+</html>
